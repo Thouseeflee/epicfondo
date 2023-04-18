@@ -27,7 +27,7 @@ function AnimatedNav() {
                                 </div>
                                 <div className="hidden md:block">
                                     <div className="ml-10 flex items-baseline space-x-4">
-                                        {navigation.map((item) => (
+                                        {navigation?.map((item) => (
                                             <a
                                                 key={item.name}
                                                 href={item.href}
@@ -135,7 +135,7 @@ function AnimatedNav() {
                         <>
                             <Disclosure.Panel className="md:hidden">
                                 <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                                    {navigation.map((item) => (
+                                    {navigation?.map((item) => (
                                         <a
                                             key={item.name}
                                             href={item.href}

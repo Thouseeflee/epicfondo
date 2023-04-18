@@ -4,6 +4,9 @@ import { useNavigate } from 'react-router-dom';
 
 const CardContainer = ({ cards }) => {
   const [data, setData] = useState();
+  useEffect(() => {
+    setData(cards)
+  },[cards])
   const animatedProps = useSpring({
     to: { opacity: 1, transform: 'translateY(0px)' },
     from: { opacity: 0, transform: 'translateY(20px)' },
@@ -22,13 +25,13 @@ const CardContainer = ({ cards }) => {
   // }, []);
 
   const contentClickHandler = (card) => {
-    navigate(`/content/${card._id}`, {state: card})
+    navigate(`/content/${card._id}`, {id:card._id})
   }
 
   return (
     <div className="flex flex-wrap justify-center mx-auto py-5 md:py-10 max-w-5xl">
-      {cards.map((card, index) => {
-        const shortenedContent = card.content.slice(0, 300) + (card.content.length > 300 ? '...' : '');
+      {data && data?.map((card, index) => {
+        // const shortenedContent = card?.content?.slice(0, 300) + (card.content.length > 300 ? '...' : '');
 
         return (
           <animated.div key={index} className="w-full md:w-1/2 lg:w-1/2 p-2"
@@ -40,7 +43,7 @@ const CardContainer = ({ cards }) => {
             onClick={contentClickHandler.bind(this, card)}
             >
               <h2 className="text-2xl font-bold mb-4 font-serif">{card.title}</h2>
-              <p className="text-gray-600 font-serif" style={{ whiteSpace: 'pre-line' }}>{shortenedContent}</p>
+              <p className="text-gray-600 font-serif" style={{ whiteSpace: 'pre-line' }}>{card.content}</p>
             </div>
           </animated.div>
 

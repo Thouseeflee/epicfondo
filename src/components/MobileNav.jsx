@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { getPostsByCategory } from './utils/API';
 
 const topics = ['All', 'Action/Adventure', 'Horror', 'Thriller/Suspense', 'Comedy', 'Post-apocalyptic Fiction'];
 
@@ -8,7 +9,7 @@ function MobileNav({setContentData}) {
 
   useEffect(() => {
     const apiCall = async () => {
-      const getContent = await axios.get(`http://192.168.1.8:3000/api/posts/posts/?storyType=${selectedTopic}`)
+      const getContent = await getPostsByCategory(selectedTopic);
       setContentData(getContent.data)
     }
     apiCall()
@@ -22,7 +23,7 @@ function MobileNav({setContentData}) {
 
   return (
     <div className="flex overflow-x-auto whitespace-nowrap py-2 w-full hide-scrollbar mx-2">
-      {topics.map((topic) => (
+      {topics?.map((topic) => (
         <div
           key={topic}
           className={`inline-block px-4 py-2 font-normal hover:bg-gray-200 rounded-full cursor-pointer whitespace-nowrap ${
