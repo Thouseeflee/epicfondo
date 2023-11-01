@@ -4,8 +4,8 @@ import axios from 'axios';
 // const isDevelopment = import.meta.env.DEV;
 // const apiUrl = isDevelopment ? import.meta.env.VITE_API_BASE_URL : '';
 // const API_URL = `${apiUrl}/api/posts/posts`;
-// const API_URL = `${import.meta.env.VITE_API_BASE_URL}/api/posts/posts`;
-const API_URL = `${import.meta.env.REACT_APP_API_URL}/api/posts/posts`;
+const API_URL = `${import.meta.env.VITE_API_BASE_URL}/api/posts/posts`;
+// const API_URL = `https://epicfondo-web.wm.r.appspot.com/api/posts/posts`;
 export const getPosts = () => {
   return axios.get(API_URL);
 };

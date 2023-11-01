@@ -71,16 +71,16 @@ const App = () => {
   return (
     <>
       <HelmetProvider>
-        <NewNavbar />
         <Router>
+          <NewNavbar />
           <Routes>
             <Route path="/" element={<MainContent />} />
             <Route path="/create-post" element={<CreatePost />} />
             <Route path="/content/:id" element={<StoryComponent />} />
           </Routes>
           {/* Other routes go here */}
+          <Footer />
         </Router>
-        <Footer />
       </HelmetProvider>
     </>
   );

@@ -4,15 +4,18 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 
 function NewNavbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    // const navigate = useNavigate();
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
     return (
         <nav className="flex items-center justify-between flex-wrap bg-gradient-to-br from-green-400 to-blue-500 p-4 sticky top-0 left-0 w-full z-10">
             <div className="flex items-center flex-shrink-0 text-white mr-6">
-                <a href="/">
-                    <span className="font-semibold text-xl tracking-tight">epicfondo</span>
-                </a>
+                    <span className="font-semibold text-xl tracking-tight">
+                        <Link to='/'>
+                        epicfondo
+                        </Link>
+                        </span>
             </div>
             {/* <div className="block lg:hidden">
                 <button

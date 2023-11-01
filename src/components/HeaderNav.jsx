@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigation } from 'react-router-dom'
 import { getPosts, getPostsByCategory } from './utils/API';
 
 const HeaderNav = ({ setContentData }) => {
@@ -65,8 +65,9 @@ const HeaderNav = ({ setContentData }) => {
         >
           Post-apocalyptic Fiction
         </button>
-        {/* <div className="w-0.5 h-6 bg-gray-200 mx-2"></div> */}
-        {/* <Link to="/create-post" className="transform hover:scale-110 transition-transform">Create</Link> */}
+        {/* <div className="w-0.5 h-6 bg-gray-200 mx-2"></div>
+        <Link to="/create-post" className="transform hover:scale-110 transition-transform">Create</Link>
+         */}
       </div>
     </div>
   );
